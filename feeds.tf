@@ -93,26 +93,3 @@ resource "google_cloud_asset_project_feed" "project_feeds" {
     }
   }
 }
-
-/*
-TODO: create a dedicated role (at which level ? --> orga what role to create a dedicated role ^^. Otherwise, cloud asset owner instead of the dedicated role) with this and give it to the tf sac which does the deployment.
---> not the module's problem. but something to document.
-  [
-│   {
-│     "@type": "type.googleapis.com/google.rpc.Help",
-│     "links": [
-│       {
-│         "description": "To check permissions required for this RPC:",
-│         "url": "https://cloud.google.com/asset-inventory/docs/access-control#required_permissions"
-│       },
-│       {
-│         "description": "To get a valid organization id:",
-│         "url": "https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id"
-│       },
-│       {
-│         "description": "To get a valid folder or project id:",
-│         "url": "https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects"
-│       }
-│     ]
-│   }
-│ ]*/
