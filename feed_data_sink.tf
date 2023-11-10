@@ -28,6 +28,8 @@ resource "google_pubsub_topic" "dead_letter" {
   name = "feed-event-log-dead-letter"
 
   project = var.hosting_project_id
+
+  depends_on = [ google_project_service.project_services ]
 }
 
 resource "google_pubsub_subscription" "feed_events_writer" {
@@ -103,6 +105,8 @@ resource "google_bigquery_dataset" "data_sink" {
       user_by_email = replace(access.value, "serviceAccount:", "")
     }
   }
+
+  depends_on = [ google_project_service.project_services ]
 }
 
 resource "google_bigquery_table" "data_sink_table" {
