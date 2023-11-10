@@ -35,6 +35,8 @@ resource "google_pubsub_topic" "feeds" {
   message_storage_policy {
     allowed_persistence_regions = [var.region]
   }
+
+  depends_on = [ google_project_service.project_services ]
 }
 
 locals {
@@ -58,6 +60,8 @@ resource "google_cloud_asset_organization_feed" "organisation_feeds" {
       topic = google_pubsub_topic.feeds[each.key].id
     }
   }
+
+  depends_on = [ google_project_service.project_services ]
 }
 
 resource "google_cloud_asset_folder_feed" "folder_feeds" {
@@ -75,6 +79,8 @@ resource "google_cloud_asset_folder_feed" "folder_feeds" {
       topic = google_pubsub_topic.feeds[each.key].id
     }
   }
+
+  depends_on = [ google_project_service.project_services ]
 }
 
 resource "google_cloud_asset_project_feed" "project_feeds" {
@@ -92,4 +98,6 @@ resource "google_cloud_asset_project_feed" "project_feeds" {
       topic = google_pubsub_topic.feeds[each.key].id
     }
   }
+
+  depends_on = [ google_project_service.project_services ]
 }
