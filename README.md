@@ -12,6 +12,8 @@ The bellow image take the example of a Compute Engine cloud asset which modifica
 **Ensure:**  
 * You have an existing GCP project to host the infrastructure
 * The effective identity running the terraform module can create and destroy ressource types required by this module
+ * roles/bigquery.dataEditor
+ * roles/iam.serviceAccountAdmin
 * In particular, the following permissions on project | folder | org, depending on the feeds scope:
   * https://cloud.google.com/asset-inventory/docs/access-control#required_permissions
   * https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id
